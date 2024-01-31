@@ -23,4 +23,4 @@ const historique = sequelize.define('Historique',{
   freezeTableName: true,  
 })
 
-module.exports = User
+module.exports = Historique
