@@ -4,33 +4,23 @@ const Sequelize = require('sequelize')
 const sequelize = require('../database/database')
 const DataTypes = require('sequelize')
 
-const Personne = sequelize.define('Personne',{
+const historique = sequelize.define('Historique',{
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
     },
-    nom:{
-        type: DataTypes.STRING,
+    date:{
+        type: DataTypes.DATE,
         allowNull: false
     },
-    prenom:{
-        type: DataTypes.STRING,
+    quantite:{
+        type: DataTypes.INTEGER,
         allowNull: false
-    },
-    age:{
-        type: DataTypes.INTEGER
     }
 },{
   freezeTableName: true,  
 })
 
-module.exports = Personne
-
-/*
-const reload = async()=>{
-    await sequelize.sync({force:true})
-}
-reload()
-*/
+module.exports = User
