@@ -1,4 +1,6 @@
 const Jeux=require('../modele/jeux')
+const User=require('../modele/user')
+const Historique=require('../modele/historique')
 
 
 exports.creatTab= async(req,res)=>{
