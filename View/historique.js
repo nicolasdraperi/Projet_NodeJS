@@ -22,7 +22,7 @@ async function historique(){
 
         historique.forEach(histo => {
             const listItem= document.createElement('tr')
-            listItem.innerHTML =`<td>${histo.id} </td> <td>${histo.date}</td><td>${histo.quantite}</td><td>${histo.jeuId}</td>`
+            listItem.innerHTML =`<td>${histo.jeuId}</td><td>${histo.quantite}</td><td>${histo.date}</td>`
 
             listHistorique.appendChild(listItem)
         });
