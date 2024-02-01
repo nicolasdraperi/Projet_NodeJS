@@ -1,4 +1,5 @@
 
+
 const createUserForm = document.getElementById('loginForm');
     createUserForm.addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -33,4 +34,8 @@ const createUserForm = document.getElementById('loginForm');
     })
     JSON.stringify(sessionStorage.getItem('TOKEN'), null, 2);
 
+    
     });
+
+
+

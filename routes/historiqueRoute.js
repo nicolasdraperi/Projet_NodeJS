@@ -2,10 +2,11 @@ const express=require('express')
 
 
 const Route=express.Router()
-const Jeux=require('../controller/historiqueController')
+const Historique=require('../controller/historiqueController')
 
+const User=require('../controller/userController.')
 
-//Route.get('/create', perosnne.creatTab)
+Route.post('/show',User.authenticator, Historique.show)
 
 
 
