@@ -66,7 +66,7 @@ exports.listeJeux = async (req, res) => {
 
 };
 exports.acheterJeux = async (req, res) => {
-    const { jeuxId, quantite } = req.body;
+    const { jeuxId, quantite , userId } = req.body;
     const jeu = await Jeux.findByPk(jeuxId);
     const jeuxAchete = jeu.stock - quantite;
     await Jeux.update({ stock: jeuxAchete }, { where: { id: jeuxId } });
@@ -74,7 +74,8 @@ exports.acheterJeux = async (req, res) => {
     await Historique.create({
         date: new Date(), 
         quantite: quantite,
-        jeuId: jeuxId
+        jeuId: jeuxId,
+        userId:userId
     });
 
 };

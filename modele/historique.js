@@ -25,5 +25,8 @@ const Historique = sequelize.define('Historique',{
 })
 Jeux.hasMany(Historique, { foreignKey: 'jeuId' });
 Historique.belongsTo(Jeux, { foreignKey: 'jeuId' });
- 
-module.exports = Historique
+
+User.hasMany(Historique, { foreignKey: 'userId' });
+Historique.belongsTo(User, { foreignKey: 'userId' });
+
+module.exports = Historique 
