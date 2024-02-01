@@ -19,7 +19,7 @@ async function afficherListeJeux() {
             <td>${jeu.nom}</td>
             <td>${jeu.categorie}</td>
             <td>${jeu.agelimite}</td>
-            <td>${jeu.plateforme}</td>
+            <td>${jeu.plateform}</td>
             <td>${jeu.nombreJoueur}</td>
             <td>${jeu.formejeux}</td>
             <td>${jeu.avis}</td>
