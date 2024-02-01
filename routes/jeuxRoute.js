@@ -5,7 +5,7 @@ const Route=express.Router()
 const Jeux=require('../controller/jeuxController')
 
 
-Route.get('/createTable', Jeux.creatTab)
+Route.get('/createAllTable', Jeux.creatTables)
 
 
 
