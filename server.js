@@ -1,12 +1,13 @@
 const express = require("express")
 const app = express()
 
-const personne = require('../Exo2/routes/personneRoute')
-const animaux = require('../Exo2/routes/animauxRoute')
+const Jeux = require('./routes/jeuxRoute')
+const User = require('./routes/userRoute')
+const Historique = require('./routes/userRoute')
 
 app.use(express.json())
-app.use("/personne",personne)
-app.use("/animaux",animaux)
+app.use("/jeux",Jeux)
+app.use("/historique",Historique)
 
 app.listen(8000)
 
