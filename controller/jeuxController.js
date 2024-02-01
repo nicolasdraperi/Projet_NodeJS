@@ -72,7 +72,7 @@ exports.acheterJeux = async (req, res) => {
     await Jeux.update({ stock: jeuxAchete }, { where: { id: jeuxId } });
     res.status(200).json('Achat réalisé avec succès');
     await Historique.create({
-        date: new Date(),
+        date: new Date(), 
         quantite: quantite,
         jeuId: jeuxId
     });
