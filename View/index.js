@@ -1,3 +1,4 @@
+
 const createUserForm = document.getElementById('loginForm');
     createUserForm.addEventListener('submit', async function(event) {
       event.preventDefault();
@@ -20,9 +21,15 @@ const createUserForm = document.getElementById('loginForm');
       .then((response)=>response.json())
     .then((data)=>{
         sessionStorage.setItem('TOKEN',data)
-      if( data==sessionStorage.getItem('TOKEN')){
+      
         location.assign("View.html");
-      }
+        if(data==false){
+            location.assign("login.html");
+
+        }else{
+            location.assign("View.html");
+
+        }
     })
     JSON.stringify(sessionStorage.getItem('TOKEN'), null, 2);
 

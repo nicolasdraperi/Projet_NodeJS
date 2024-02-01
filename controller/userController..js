@@ -34,7 +34,7 @@ exports.login= async(req,res)=>{
 
  const result= await User.findOne({where: {email:(email)}})
 if(!result){
- return res.status(400).json("erreur :email non trouver")
+ return res.status(400).json(false)
 
 }
 
@@ -45,7 +45,7 @@ const passwordTrue=await bcrypt.compare(password,result.password)
 console.log(passwordTrue);
 
 if(!passwordTrue){
- return res.status(400).json("erreur :mot de passe incorrect")
+ return res.status(400).json(false)
 
 }
 
