@@ -1,9 +1,9 @@
 const Historique=require('../modele/historique')
 
 
-/*
-exports.creatanimals= async(req,res)=>{
-    await Animaux.sync({ alter: true });
-    res.status(200).json("table Animaux créer")
+exports.show= async(req,res)=>{
 
-}*/
+ const result= await Historique.findAll()
+
+ return res.status(201).json(result)
+}

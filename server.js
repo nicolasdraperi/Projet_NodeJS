@@ -3,7 +3,7 @@ const app = express()
 
 const Jeux = require('./routes/jeuxRoute')
 const User = require('./routes/userRoute')
-const Historique = require('./routes/userRoute')
+const Historique = require('./routes/historiqueRoute')
 
 app.use(express.json())
 app.use("/jeux",Jeux)
