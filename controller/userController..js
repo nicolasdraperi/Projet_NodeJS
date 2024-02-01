@@ -57,7 +57,9 @@ res.json(token)
 
 
 exports.authenticator=async(req,res,next)=>{
+
     const token=req.body.token ? req.body.token : req.headers.authorization
+    
     if(token){
        let decoded= jwt.verify(token, process.env.API_KEY)
         console.log(decoded)

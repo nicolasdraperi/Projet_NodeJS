@@ -1,10 +1,19 @@
 async function historique(){
 
+
+//on envoie a l'authenticator
+
+
+
+
     await fetch('http://localhost:8000/historique/show', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
-        }
+        },
+        body: JSON.stringify({
+            token:sessionStorage.getItem('TOKEN')
+        })
     
     }).then((response)=>response.json())
     .then(historique=>{
