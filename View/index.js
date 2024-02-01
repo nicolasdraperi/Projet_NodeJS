@@ -27,7 +27,7 @@ const createUserForm = document.getElementById('loginForm');
             location.assign("login.html");
 
         }else{
-            location.assign("View.html");
+            location.assign("Accueil.html");
 
         }
     })
