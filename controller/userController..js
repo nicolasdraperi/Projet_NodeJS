@@ -7,14 +7,20 @@ require('dotenv').config()
 
 
 exports.createUser= async(req,res)=>{
-    const {nom,prenom,email,password}=req.body
+    const {nom,prenom,email,password,role}=req.body
+  
 
-    const haspassword=await bcrypt.hash(password,10)
-
-    await User.create({nom:nom,prenom:prenom,email:email,password:haspassword})
-
-
-    return res.status(400).json("creation reussi ")
+  const result= await User.findOne({where: {email:(email)}})
+    if(result){
+     return res.status(400).json("erreur :email déja exstant")
+    
+    }else{
+           const haspassword=await bcrypt.hash(password,10)
+           await User.create({nom:nom,prenom:prenom,email:email,password:haspassword,role:role})
+           
+           return res.status(400).json("creation reussi ")
+    }
+ 
 
 }
 
