@@ -6,6 +6,9 @@ body {
     align-items: center;
     height: 100vh;
     color: white;
+    background-image: url(./gojo-hand-sign-jujutsu-kaisen-moewalls-com\ \(1\).gif);
+    background-size: cover;
+
 }
 .login-container {
     background-color: rgba(0, 0, 0, 0.8);
