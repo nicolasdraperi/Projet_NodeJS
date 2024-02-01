@@ -5,8 +5,9 @@ const Route=express.Router()
 const User=require('../controller/userController.')
 
 
-//Route.get('/create', perosnne.creatTab)
+Route.post('/createUser', User.authenticator,User.createUser)
 
+Route.post('/login', User.login)
 
 
 

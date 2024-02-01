@@ -9,6 +9,9 @@ app.use(express.json())
 app.use("/jeux",Jeux)
 app.use("/historique",Historique)
 
+app.use("/user",User)
+
+
 app.listen(8000)
 
  
