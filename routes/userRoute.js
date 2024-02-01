@@ -5,9 +5,11 @@ const Route=express.Router()
 const User=require('../controller/userController.')
 
 
-//Route.get('/create', perosnne.creatTab)
+Route.post('/createUser',User.createUser)
 
+Route.post('/login', User.login)
 
+Route.post('/admin', User.Admin_OR_NOT)
 
 
 module.exports=Route
