@@ -43,7 +43,7 @@ async function acheterJeu(jeuId, quantite) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                jeuId: jeuId,
+                jeuxId: jeuId,
                 quantite: quantite,
             }),
         });
