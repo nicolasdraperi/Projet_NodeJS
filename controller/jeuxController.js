@@ -71,6 +71,11 @@ exports.acheterJeux = async (req, res) => {
     const jeuxAchete = jeu.stock - quantite;
     await Jeux.update({ stock: jeuxAchete }, { where: { id: jeuxId } });
     res.status(200).json('Achat réalisé avec succès');
+    await Historique.create({
+        date: new Date(),
+        quantite: quantite,
+        jeuId: jeuxId
+    });
 
 };
 
