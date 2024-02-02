@@ -21,8 +21,9 @@ const createUserForm = document.getElementById('loginForm');
       })
       .then((response)=>response.json())
     .then((data)=>{
-        sessionStorage.setItem('TOKEN',data)
-      
+        sessionStorage.setItem('TOKEN',data.token)
+        sessionStorage.setItem('etat',data.etat)
+
         location.assign("View.html");
         if(data==false){
             location.assign("login.html");
@@ -33,7 +34,7 @@ const createUserForm = document.getElementById('loginForm');
         }
     })
     JSON.stringify(sessionStorage.getItem('TOKEN'), null, 2);
-
+    
     
     });
 

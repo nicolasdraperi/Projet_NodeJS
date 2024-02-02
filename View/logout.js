@@ -1,10 +1,27 @@
+
+
 async function log() {
-valeurLog=document.getElementById('log')
-if(sessionStorage.getItem('TOKEN').length==0){
-    valeurLog.textContent="Login"
+
+const valeurLog=document.getElementById('log')
+
+if(!sessionStorage.getItem('etat')){
+        valeurLog.innerHTML="Login"
+        valeurLog.href="login.html"
 }else{
-    valeurLog.textContent="Logout"
+
+    valeurLog.innerHTML=sessionStorage.getItem('etat');
+
 }
+
+
+
+
 }
 
 log()
+
+
+
+
+
+

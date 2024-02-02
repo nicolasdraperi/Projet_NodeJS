@@ -31,9 +31,10 @@ exports.createUser= async(req,res)=>{
 
 exports.login= async(req,res)=>{
     const {email,password}=req.body
-
+let etat
  const result= await User.findOne({where: {email:(email)}})
 if(!result){
+    etat="Login"
  return res.status(400).json(false)
 
 }
@@ -45,12 +46,15 @@ const passwordTrue=await bcrypt.compare(password,result.password)
 console.log(passwordTrue);
 
 if(!passwordTrue){
+     etat="Login"
  return res.status(400).json(false)
 
-}
 
+}
+etat="Logout"
 const token= jwt.sign({email},process.env.API_KEY,{expiresIn:'1h'})
-res.json(token)
+res.json({token,etat})
+
 
 }
 
