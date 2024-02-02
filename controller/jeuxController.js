@@ -93,24 +93,6 @@ exports.ajouterStock = async (req, res) => {
     });
 
 };
-exports.getHistoriqueUtilisateur = async (req, res) => {
-    try {
-        const { idUtilisateur } = req.params;
 
-        const historique = await Historique.findAll({
-            where: { userid: idUtilisateur },
-            include: [{ model: User, attributes: ['nom'] }],
-        });
-
-        if (!historique || historique.length === 0) {
-            return res.status(404).json({ error: "Historique non trouvé" });
-        }
-
-        res.json(historique);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Erreur lors de la récupération de l'historique de l'utilisateur" });
-    }
-};
 
 

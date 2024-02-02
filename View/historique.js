@@ -1,12 +1,5 @@
 async function historique(){
-
-
-//on envoie a l'authenticator
-
-
-
-
-    await fetch('http://localhost:8000/historique/show', {
+    await fetch('http://localhost:8000/historique/showUser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -22,7 +15,11 @@ async function historique(){
 
         historique.forEach(histo => {
             const listItem= document.createElement('tr')
-            listItem.innerHTML =`<td>${histo.jeuId}</td><td>${histo.quantite}</td><td>${histo.date}</td>`
+            listItem.innerHTML =`
+            <td>${histo.jeuId}</td>
+            <td>${histo.Jeux.nom}</td>
+            <td>${histo.quantite}</td>
+            <td>${histo.date}</td>`
 
             listHistorique.appendChild(listItem)
         });
@@ -30,6 +27,30 @@ async function historique(){
     })
     .catch(error=>console.log('erreur lors de la récupération'));
     
+}
+async function getHistorique() {
+    const idUtilisateur = document.getElementById('userId').value;
+
+    try {
+        const response = await fetch('http://localhost:8000/historique/showUser', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        body: JSON.stringify({
+            token:sessionStorage.getItem('TOKEN')
+        })
+        });
+
+        if (response.ok) {
+            const historique = await response.json();
+            console.log('Historique:', historique);
+        } else {
+            console.error('Erreur de récupération de l\'historique. Status:', response.status);
+        }
+    } catch (error) {
+        console.error('Erreur', error);
+    }
 }
 
 historique()
