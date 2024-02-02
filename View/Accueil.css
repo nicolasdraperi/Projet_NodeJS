@@ -68,40 +68,36 @@ h1 {
 }
 
 /* Espace Admin */
-#espace-admin {
-    margin-top: 20px;
-}
-
-#espace-admin table {
+#espace-admin table, #historique-admin table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-#espace-admin th, #espace-admin td {
+#espace-admin th, #espace-admin td, #historique-admin th, #historique-admin td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-#espace-admin label {
+#espace-admin label, #historique-admin label {
     display: block;
     margin-bottom: 5px;
 }
 
-#espace-admin input, #espace-admin button {
+#espace-admin input, #espace-admin button, #historique-admin input, #historique-admin button {
     margin-bottom: 10px;
     padding: 8px;
 }
 
-#espace-admin button {
+#espace-admin button, #historique-admin button {
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
 }
 
-#espace-admin button:hover {
+#espace-admin button:hover, #historique-admin button:hover {
     background-color: #45a049;
 }
 
