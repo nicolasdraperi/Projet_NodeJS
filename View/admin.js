@@ -96,4 +96,29 @@ async function updateJeux() {
         console.error('Erreur :', error);
     }
 }
+async function inscription() {
+    const nom = document.getElementById('nom').value;
+    const prenom = document.getElementById('prenom').value;
+    const email = document.getElementById('mail').value;
+    const password = document.getElementById('password').value;
+
+
+    const response = await fetch('http://127.0.0.1:8000/user/createUser', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+            nom,
+            prenom,
+            email, 
+            password,
+            role:"utilisateur"
+            }),
+        });
+
+        
+        const data = await response.json();
+        document.location.href="./Accueil.html"; 
+}
 
