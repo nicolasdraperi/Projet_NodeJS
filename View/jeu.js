@@ -48,6 +48,7 @@ async function acheterJeu(jeuId, quantite) {
             body: JSON.stringify({
                 jeuxId: jeuId,
                 quantite: quantite,
+                token:sessionStorage.getItem('TOKEN')
             }),
         });
         const data = await response.json();
