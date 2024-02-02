@@ -6,8 +6,8 @@ const Historique=require('../controller/historiqueController')
 
 const User=require('../controller/userController.')
 
-Route.post('/show',User.authenticator, Historique.show)
-Route.post('/showUser', Historique.getHistoriqueUtilisateur)
+Route.post('/show',User.Admin_OR_NOT, Historique.show)
+Route.post('/showUser',User.authenticator, Historique.getHistoriqueUtilisateur)
 
 
  
