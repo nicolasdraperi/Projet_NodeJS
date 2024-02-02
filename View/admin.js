@@ -10,6 +10,8 @@ async function addJeux() {
     const avis = document.getElementById('avis').value;
     const date = document.getElementById('date').value;
     const stock = document.getElementById('stock').value;
+const token=  sessionStorage.getItem('TOKEN')
+
 
     try {
         const response = await fetch('http://127.0.0.1:8000/jeux/ajouterJeux', {
@@ -18,17 +20,22 @@ async function addJeux() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                nom,
-                categorie,
-                agelimite,
-                plateforme,
-                nombrejoueur,
-                formejeux,
-                prix,
-                description,
-                avis,
-                date,
-                stock
+                nom:nom,
+                categorie:categorie,
+                agelimite:agelimite,
+                plateforme:plateforme,
+                nombrejoueur:nombrejoueur,
+                formejeux:formejeux,
+                prix:prix,
+                description:description,
+                avis:avis,
+                date:date,
+                stock:stock,
+                token:token
+               
+                
+                
+                
             }),
         });
 
@@ -41,6 +48,7 @@ async function addJeux() {
     } catch (error) {
         console.error('Erreur :', error);
     }
+  
 }
 
 async function updateJeux() {
