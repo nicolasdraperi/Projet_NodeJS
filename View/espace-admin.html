@@ -15,9 +15,10 @@
         <li><a href="historique-achats.html">Historique des Achats</a></li>
         <li><a href="espace-admin.html">Espace Admin</a></li>
         <li><a href="Addjeu.html">Ajouter jeu</a></li>
+        <li><a href="Inscription.html">Inscription</a></li>
 
-        <li><a id="log" href="login.html">Login</a></li>
-    </ul>
+        <li><a id="log" href="javascript:void(0);" onclick="logout()">Login</a>
+        </li>    </ul>
 </nav>
 
 <div class="content">
@@ -49,14 +50,14 @@
         <table>
             <thead>
                 <tr>
-                    <th>Nom du Jeu</th>
-                    <th>Nom d'Utilisateur</th>
+                    <th>Id</th>
                     <th>Date</th>
                     <th>Quantité</th>
-                    <th>Prix</th>
+                    <th>Id du jeu</th>
+                    <th>Id d'utilisateur</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="historiqueid">
             </tbody>
         </table>
         
@@ -69,5 +70,8 @@
 </footer>
 
 <script src="./liste_jeu.js"></script>
+
+<script src="./logout.js"></script>
+
 </body>
 </html>
