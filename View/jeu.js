@@ -51,7 +51,7 @@ async function acheterJeu(jeuId, quantite) {
             }),
         });
         const data = await response.json();
-        console.log(data);
+        location.reload();
     } catch (error) {
         console.error('Erreur lors de l\'achat du jeu:', error);
     }
