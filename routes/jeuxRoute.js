@@ -7,7 +7,7 @@ const User=require('../controller/userController.')
 
 
 Route.get('/createAllTable', Jeux.creatTables)
-Route.post('/ajouterJeux', Jeux.addJeux)
+Route.post('/ajouterJeux', User.Admin_OR_NOT,Jeux.addJeux)
 Route.put('/modifJeux/:id', Jeux.updateJeux);
 Route.delete('/supprJeux/:id', Jeux.deleteJeux);
 Route.post('/jeux', Jeux.listeJeux);

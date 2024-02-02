@@ -84,14 +84,13 @@ exports.authenticator=async(req,res,next)=>{
 
 exports.Admin_OR_NOT=async(req,res,next)=>{
     const token=req.body.token ? req.body.token : req.headers.authorization
-    const {email}=req.body
-
+console.log(req.body)
      jwt.verify(token, process.env.API_KEY, async(err, decoded)=>{
         if(err){    
             return res.status(401).json("unauthorize") 
         }
         else{
-            const result= await User.findOne({where: {email:(email)}})
+            const result= await User.findOne({where: {email:(decoded.email)}})
             console.log(result.role);
             let role=  result.role;
 
