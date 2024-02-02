@@ -52,7 +52,7 @@ exports.updateJeux = async (req, res) => {
 
 };
 exports.deleteJeux = async (req, res) => {
-    const { id } = req.params; 
+    const { id } = req.body; 
     await Jeux.destroy({
         where: { id: id }
     });

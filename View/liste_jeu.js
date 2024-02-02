@@ -17,16 +17,17 @@ async function afficherListeJeux() {
         jeux.forEach(jeu => {
             const listItem = document.createElement('tr');
             listItem.innerHTML = `
-            <td>${jeu.id}</td>
+            <td id="IdJeu">${jeu.id}</td>
             <td>${jeu.nom}</td>
             <td>${jeu.categorie}</td>
             <td>${jeu.agelimite}</td>
             <td>${jeu.plateform}</td>
             <td>${jeu.stock}</td>
             <td>
-            <td><input type="number" id="quantite-${jeu.id}" placeholder="Quantité"></td>
-            <td><button onclick="ajouterStock(${jeu.id}, document.getElementById('quantite-${jeu.id}').value)">Restocker</button></td>
-            <button onclick="supprimerJeu()">Supprimer</button>
+            <td>
+            <input type="number" id="quantite-${jeu.id}" placeholder="Quantité">
+            <button onclick="ajouterStock(${jeu.id}, document.getElementById('quantite-${jeu.id}').value)">Restocker</button>
+            <button onclick="deleteJeux(${jeu.id},document.getElementById('IdJeu').value)">Supprimer</button>
             </td>
             `;
             listJeux.appendChild(listItem);
@@ -35,6 +36,27 @@ async function afficherListeJeux() {
         console.error('Erreur lors de la récupération des jeux:', error);
     }
 }
+async function deleteJeux(jeuId) {
+    console.log(jeuId)
+    try {
+        const token = sessionStorage.getItem("TOKEN");
+        const response = await fetch(`http://127.0.0.1:8000/jeux/deleteJeux`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: jeuId,
+                token: token
+            }),
+        });
+        const data = await response.json();
+        location.reload();
+    } catch (error) {
+        console.error('Erreur lors de la suppression du jeu:', error);
+    }
+}
+
 async function ajouterStock(jeuId, quantite) {
     try {
         const token = sessionStorage.getItem("TOKEN")
@@ -52,7 +74,7 @@ async function ajouterStock(jeuId, quantite) {
         const data = await response.json();
         location.reload();
     } catch (error) {
-        console.error('Erreur lors de l\'achat du jeu:', error);
+        console.error('Erreur lors du restockage:', error);
     }
 }
 afficherListeJeux()
