@@ -68,8 +68,20 @@ h1 {
 }
 
 /* Espace Admin */
-#espace-admin form {
+#espace-admin {
     margin-top: 20px;
+}
+
+#espace-admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#espace-admin th, #espace-admin td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
 }
 
 #espace-admin label {
@@ -79,6 +91,18 @@ h1 {
 
 #espace-admin input, #espace-admin button {
     margin-bottom: 10px;
+    padding: 8px;
+}
+
+#espace-admin button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#espace-admin button:hover {
+    background-color: #45a049;
 }
 
 /* Pied de page */
