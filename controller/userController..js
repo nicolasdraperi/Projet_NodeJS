@@ -31,10 +31,11 @@ exports.createUser= async(req,res)=>{
 
 exports.login= async(req,res)=>{
     const {email,password}=req.body
-
+let etat
  const result= await User.findOne({where: {email:(email)}})
 if(!result){
- return res.status(400).json("erreur :email non trouver")
+    etat="Login"
+ return res.status(400).json(false)
 
 }
 
@@ -45,19 +46,24 @@ const passwordTrue=await bcrypt.compare(password,result.password)
 console.log(passwordTrue);
 
 if(!passwordTrue){
- return res.status(400).json("erreur :mot de passe incorrect")
+     etat="Login"
+ return res.status(400).json(false)
+
 
 }
-
+etat="Logout"
 const token= jwt.sign({email},process.env.API_KEY,{expiresIn:'1h'})
-res.json(token)
+res.json({token,etat})
+
 
 }
 
 
 
 exports.authenticator=async(req,res,next)=>{
+
     const token=req.body.token ? req.body.token : req.headers.authorization
+    
     if(token){
        let decoded= jwt.verify(token, process.env.API_KEY)
         console.log(decoded)
@@ -78,14 +84,13 @@ exports.authenticator=async(req,res,next)=>{
 
 exports.Admin_OR_NOT=async(req,res,next)=>{
     const token=req.body.token ? req.body.token : req.headers.authorization
-    const {email}=req.body
-
+console.log(req.body)
      jwt.verify(token, process.env.API_KEY, async(err, decoded)=>{
         if(err){    
             return res.status(401).json("unauthorize") 
         }
         else{
-            const result= await User.findOne({where: {email:(email)}})
+            const result= await User.findOne({where: {email:(decoded.email)}})
             console.log(result.role);
             let role=  result.role;
 

@@ -11,5 +11,6 @@ Route.post('/login', User.login)
 
 Route.post('/admin', User.Admin_OR_NOT)
 
+Route.post('/token', User.authenticator)
 
 module.exports=Route
