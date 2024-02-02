@@ -79,6 +79,20 @@ exports.acheterJeux = async (req, res) => {
     });
 
 };
+exports.ajouterStock = async (req, res) => {
+    const { jeuxId, quantite , userId } = req.body;
+    const jeu = await Jeux.findByPk(jeuxId);
+    const jeuxAchete = jeu.stock + quantite;
+    await Jeux.update({ stock: jeuxAchete }, { where: { id: jeuxId } });
+    res.status(200).json('Achat réalisé avec succès');
+    await Historique.create({
+        date: new Date(), 
+        quantite: quantite,
+        jeuId: jeuxId,
+        userId:userId
+    });
+
+};
 exports.getHistoriqueUtilisateur = async (req, res) => {
     try {
         const { idUtilisateur } = req.params;
