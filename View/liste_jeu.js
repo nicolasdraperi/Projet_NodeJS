@@ -24,7 +24,6 @@ async function afficherListeJeux() {
             <td>${jeu.plateform}</td>
             <td>${jeu.stock}</td>
             <td>
-            <td>
             <input type="number" id="quantite-${jeu.id}" placeholder="Quantité">
             <button onclick="ajouterStock(${jeu.id}, document.getElementById('quantite-${jeu.id}').value)">Restocker</button>
             <button onclick="deleteJeux(${jeu.id},document.getElementById('IdJeu').value)">Supprimer</button>
@@ -79,5 +78,36 @@ async function ajouterStock(jeuId, quantite) {
 }
 afficherListeJeux()
 
+async function historique(){
+    await fetch('http://localhost:8000/historique/show', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({
+            token:sessionStorage.getItem('TOKEN')
+        })
+    
+    }).then((response)=>response.json())
+    .then(historique=>{
+        const listHistorique=document.getElementById('historiqueid')
+        
+
+        historique.forEach(histo => {
+            const listItem= document.createElement('tr')
+            listItem.innerHTML =`
+            <td>${histo.id}</td>
+            <td>${histo.date}</td>
+            <td>${histo.quantite}</td>
+            <td>${histo.jeuId}</td>
+            <td>${histo.userId}</td>`
+            listHistorique.appendChild(listItem)
+        });
+    
+    })
+    .catch(error=>console.log(error));
+    
+}
+historique()
 
 
