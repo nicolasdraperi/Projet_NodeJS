@@ -24,7 +24,7 @@ async function afficherListeJeux() {
             <td>${jeu.plateform}</td>
             <td>${jeu.stock}</td>
             <td>
-            <button onclick="modifierJeu()">Modifier</button>
+            <button onclick="modifierJeu(${jeu.id})">Modifier</button>
             <button onclick="supprimerJeu()">Supprimer</button>
             <button onclick="ajouterJeu()">Ajouter Jeu</button>
             </td>
@@ -36,3 +36,5 @@ async function afficherListeJeux() {
     }
 }
 afficherListeJeux()
+
+
