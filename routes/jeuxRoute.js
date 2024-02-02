@@ -10,11 +10,11 @@ Route.get('/createAllTable', Jeux.creatTables)
 Route.put('/modifJeux/:id', Jeux.updateJeux);
 Route.delete('/supprJeux/:id', Jeux.deleteJeux);
 Route.post('/jeux', Jeux.listeJeux);
-Route.get('/adminJeux',User.Admin_OR_NOT, Jeux.listeJeux);
+Route.post('/adminJeux',User.Admin_OR_NOT, Jeux.listeJeux);
 Route.post('/acheterJeux', User.authenticator,Jeux.acheterJeux);
 
 Route.post('/ajouterJeux', User.Admin_OR_NOT,Jeux.addJeux)
-Route.post('/ajouterStock', Jeux.ajouterStock)
+Route.post('/ajouterStock', User.Admin_OR_NOT,Jeux.ajouterStock)
 
 
 
