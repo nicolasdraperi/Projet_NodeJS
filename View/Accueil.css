@@ -7,8 +7,9 @@ body, h1, h2, h3, p, ul, li, table, th, td {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f8f8f8;
-}
+    background-color:#897e7e;
+   
+}   
 
 /* Barre de navigation */
 nav {
@@ -103,7 +104,10 @@ h1 {
 
 /* Pied de page */
 footer {
-    margin-top: 20px;
+    position: fixed; /* Utilisez 'fixed' à la place de 'relative' */
+    bottom: 0px;
+    left: 0;
+    width: 100%;
     padding: 10px;
     text-align: center;
     background-color: #333;
