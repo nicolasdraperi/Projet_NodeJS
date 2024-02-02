@@ -66,18 +66,33 @@ exports.listeJeux = async (req, res) => {
 
 };
 exports.acheterJeux = async (req, res) => {
-    const { jeuxId, quantite , userId } = req.body;
-    const jeu = await Jeux.findByPk(jeuxId);
-    const jeuxAchete = jeu.stock - quantite;
-    await Jeux.update({ stock: jeuxAchete }, { where: { id: jeuxId } });
-    res.status(200).json('Achat réalisé avec succès');
-    await Historique.create({
-        date: new Date(), 
-        quantite: quantite,
-        jeuId: jeuxId,
-        userId:userId
-    });
+    try {
+        const { jeuxId, quantite, userId } = req.body;
 
+        // Vérification si la quantité est inférieure ou égale à 0
+        if (quantite <= 0) {
+            return res.status(400).json({ error: "La quantité doit être supérieure à 0" });
+        }
+
+        const jeu = await Jeux.findByPk(jeuxId);
+
+        if (!jeu || quantite > jeu.stock) {
+            return res.status(400).json({ error: "Quantité non disponible en stock" });
+        }
+        const jeuxAchete = jeu.stock - quantite;
+        await Jeux.update({ stock: jeuxAchete }, { where: { id: jeuxId } });
+        await Historique.create({
+            date: new Date(),
+            quantite: quantite,
+            jeuId: jeuxId,
+            userId: userId,
+        });
+
+        res.status(200).json('Achat réalisé avec succès');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Erreur lors de l'achat du jeu" });
+    }
 };
 exports.ajouterStock = async (req, res) => {
     const { jeuxId, quantite , userId } = req.body;
