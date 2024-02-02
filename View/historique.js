@@ -25,7 +25,7 @@ async function historique(){
         });
     
     })
-    .catch(error=>console.log('erreur lors de la récupération'));
+    .catch(error=>console.log(error));
     
 }
 async function getHistorique() {
