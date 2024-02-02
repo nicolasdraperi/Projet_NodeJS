@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="liste-jeux.css">
+    <title>Liste des Jeux - MacroMania</title>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="Accueil.html">Accueil</a></li>
+        <li><a href="liste-jeux.html">Liste des Jeux</a></li>
+        <li><a href="historique-achats.html">Historique des Achats</a></li>
+        <li><a href="espace-admin.html">Espace Admin</a></li>
+        <li><a href="Inscription.html">Inscription</a></li>
+
+        <li><a id="log" href="javascript:void(0);" onclick="logout()">Login</a>
+        </li>    </ul>
+</nav>
+
+<div class="content">
+    <h1>Liste des Jeux</h1>
+<section id="liste-jeux">
+    <table>
+        <thead>
+            <tr>
+                <th>Numéro Jeu</th>
+                <th>Nom</th>
+                <th>Catégorie</th>
+                <th>Age Limite</th>
+                <th>Plateforme</th>
+                <th>Nombre de Joueurs</th>
+                <th>Format</th>
+                <th>Avis</th>
+                <th>Date de sortie</th>
+                <th>Stock</th>
+                <th>Quantité a acheter</th>
+                <th>Action</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</section>
+</div>
+
+<script src="jeu.js"></script>
+
+
+<footer>
+    <p>&copy; 2024 MacroMania - Jeux Vidéos</p>
+</footer>
+<script src="./logout.js"></script>
+</body>
+</html>

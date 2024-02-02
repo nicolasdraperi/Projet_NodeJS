@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Accueil.css">
+    <title>Historique des Achats - MacroMania</title>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="Accueil.html">Accueil</a></li>
+        <li><a href="liste-jeux.html">Liste des Jeux</a></li>
+        <li><a href="historique-achats.html">Historique des Achats</a></li>
+        <li><a href="espace-admin.html">Espace Admin</a></li>
+        <li><a href="Inscription.html">Inscription</a></li>
+
+        <li><a id="log" href="javascript:void(0);" onclick="logout()">Login</a>
+        </li>    </ul>
+</nav>
+
+<div class="content">
+    <h1>Historique des Achats</h1>
+    <section id="historique-achats">
+ <table>
+     
+  
+<table id="historiqueTable">
+  <thead>
+    <tr>
+      <th>Jeu ID</th>
+      <th>Nom Jeu</th>
+      <th>Quantité</th>
+    <th>Date d'achat</th>
+    </tr>
+  </thead>
+  <tbody id="test">
+    <!-- Les données seront ajoutées ici -->
+  </tbody>
+</table>
+
+
+</table>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 MacroMania - Jeux Vidéos</p>
+</footer>
+<script src="./historique.js"  >   
+    </script>
+<script  src="./logout.js">
+
+</script>
+</body>
+</html>

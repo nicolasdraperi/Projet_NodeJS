@@ -1,10 +1,11 @@
 
 const Sequelize = require('sequelize')
-
+const Jeux=require('../modele/jeux')
+const User=require('../modele/user')
 const sequelize = require('../database/database')
 const DataTypes = require('sequelize')
 
-const historique = sequelize.define('Historique',{
+const Historique = sequelize.define('Historique',{
     id:{
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -22,5 +23,10 @@ const historique = sequelize.define('Historique',{
 },{
   freezeTableName: true,  
 })
+Jeux.hasMany(Historique, { foreignKey: 'jeuId' });
+Historique.belongsTo(Jeux, { foreignKey: 'jeuId' });
 
-module.exports = Historique
+User.hasMany(Historique, { foreignKey: 'userId' });
+Historique.belongsTo(User, { foreignKey: 'userId' });
+
+module.exports = Historique 

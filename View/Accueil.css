@@ -1,0 +1,116 @@
+/* Réinitialisation des styles de base */
+body, h1, h2, h3, p, ul, li, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color:#897e7e;
+   
+}   
+
+/* Barre de navigation */
+nav {
+    background-color: #333;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Contenu principal */
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+/* Liste des Jeux */
+#liste-jeux table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#liste-jeux th, #liste-jeux td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Historique des Achats */
+#historique-achats table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#historique-achats th, #historique-achats td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Espace Admin */
+#espace-admin table, #historique-admin table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#espace-admin th, #espace-admin td, #historique-admin th, #historique-admin td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#espace-admin label, #historique-admin label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#espace-admin input, #espace-admin button, #historique-admin input, #historique-admin button {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+#espace-admin button, #historique-admin button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#espace-admin button:hover, #historique-admin button:hover {
+    background-color: #45a049;
+}
+
+/* Pied de page */
+footer {
+    position: fixed; /* Utilisez 'fixed' à la place de 'relative' */
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
